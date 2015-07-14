@@ -1,3 +1,5 @@
+# coding: utf-8
+
 """
 Django settings for web_interface project.
 
@@ -77,7 +79,7 @@ WSGI_APPLICATION = 'web_interface.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'bot+db/test.db'),
     }
 }
 
@@ -85,7 +87,7 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-ru'
 
 TIME_ZONE = 'UTC'
 
