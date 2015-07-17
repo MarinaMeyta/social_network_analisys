@@ -45,10 +45,9 @@ for result in results:
 		# print "Following: " + str(result.user.friends_count)
 		# print "A member of " + str(result.user.listed_count) + " lists."
 		# time.sleep(1)
-		b=''
+		hash_list=[]
 		for hashtags in result.entities['hashtags']:
-			a=hashtags['text']
-			b+=a+","
-
-		cur.execute("insert into tweets (tweet_id, tweet_text,hashtags,created_at,user_name,lang,time_zone,location) values(?,?,?,?,?,?,?,?)",(result.id_str,result.text,b,str(result.created_at),result.user.name,result.user.lang, str(result.user.time_zone),result.user.location,))
+			hash_list.append(hashtags['text'])
+		hash_str= ",".join(hash_list)
+		cur.execute("insert into tweets (tweet_id, tweet_text,hashtags,created_at,user_name,lang,time_zone,location) values(?,?,?,?,?,?,?,?)",(result.id_str,result.text,hash_str,str(result.created_at),result.user.name,result.user.lang, str(result.user.time_zone),result.user.location,))
 		con.commit()
