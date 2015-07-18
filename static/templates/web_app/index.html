@@ -1,12 +1,16 @@
-<table>
+<table  cellspacing="5" cellpadding="10" border="1" width=1200>
     <tr>
-        <th>tweet_id</th>
-        <th>tweet_text</th>
+        <th>id</th>
+        <th>text</th>
+        <th>hashtags</th>
+        <th>created at</th>
     </tr>
     {% for item in latest_question_list %}
     <tr> 
         <td>{{ item.tweet_id}}</td>
         <td>{{ item.tweet_text}}</td>
+        <td>{{ item.hashtags}}</td>
+        <td width=150>{{ item.created_at}}</td>
     </tr>
     {% endfor %}
 </table>
