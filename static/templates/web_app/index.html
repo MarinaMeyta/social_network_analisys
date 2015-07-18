@@ -1,9 +1,12 @@
-{% if latest_question_list %}
-    <ul>
-    {% for question in latest_question_list %}
-        <li><a href="/web_app/{{ question.id }}/">{{ question.tweet_text }}</a></li>
+<table>
+    <tr>
+        <th>tweet_id</th>
+        <th>tweet_text</th>
+    </tr>
+    {% for item in latest_question_list %}
+    <tr> 
+        <td>{{ item.tweet_id}}</td>
+        <td>{{ item.tweet_text}}</td>
+    </tr>
     {% endfor %}
-    </ul>
-{% else %}
-    <p>No polls are available.</p>
-{% endif %}
+</table>
