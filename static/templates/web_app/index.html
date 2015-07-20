@@ -1,29 +1,70 @@
 
-<table>
-    <col width="300" valign="top">
-    <col width="300" valign="top">
-    <col width="300" valign="top">
-    <col width="300" valign="top">
-
-    <tr>
-        <th>id</th>
-        <th>text</th>
-        <th>hashtags</th>
-        <th>created at</th>
-    </tr>
-    {% for item in latest_question_list %}
-    <tr> 
-        <td>{{ item.tweet_id}}</td>
-        <td>{{ item.tweet_text}}</td>
-        <td>{{ item.hashtags}}</td>
-        <td>{{ item.created_at}}</td>
-    </tr>
-    {% endfor %}
-</table>
-
 <style type="text/css">
 
+#search {
+  width: 250px;
+  height: 22px;
+  display: inline-block;
+  font-family: arial,sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  color: rgb(68,68,68);
+  text-decoration: none;
+  user-select: none;
+  padding: .2em 1.2em;
+  outline: none;
+  border: 1px solid rgba(0,0,0,.1);
+  border-radius: 2px;
+  background: rgb(245,245,245) linear-gradient(#f4f4f4, #f1f1f1);
+  transition: all .218s ease 0s;
+}
+#search:hover {
+  color: rgb(24,24,24);
+  border: 1px solid rgb(198,198,198);
+  background: #f7f7f7 linear-gradient(#f7f7f7, #f1f1f1);
+  box-shadow: 0 1px 2px rgba(0,0,0,.1);
+}
+#search:active {
+  color: rgb(51,51,51);
+  border: 1px solid rgb(204,204,204);
+  background: rgb(238,238,238) linear-gradient(rgb(238,238,238), rgb(224,224,224));
+  box-shadow: 0 1px 2px rgba(0,0,0,.1) inset;
+}
+
+#refreshtable {
+  width: 250px;
+  height: 22px;
+  display: inline-block;
+  font-family: arial,sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  color: rgb(68,68,68);
+  text-decoration: none;
+  user-select: none;
+  padding: .2em 1.2em;
+  outline: none;
+  border: 1px solid rgba(0,0,0,.1);
+  border-radius: 2px;
+  background: rgb(245,245,245) linear-gradient(#f4f4f4, #f1f1f1);
+  transition: all .218s ease 0s;
+}
+#refreshtable:hover {
+  color: rgb(24,24,24);
+  border: 1px solid rgb(198,198,198);
+  background: #f7f7f7 linear-gradient(#f7f7f7, #f1f1f1);
+  box-shadow: 0 1px 2px rgba(0,0,0,.1);
+}
+#refreshtable:active {
+  color: rgb(51,51,51);
+  border: 1px solid rgb(204,204,204);
+  background: rgb(238,238,238) linear-gradient(rgb(238,238,238), rgb(224,224,224));
+  box-shadow: 0 1px 2px rgba(0,0,0,.1) inset;
+}
+
+
 table {
+    position:relative;
+    top: -6%;
     table-layout: auto;
     overflow:hidden;
     border:1px solid #d3d3d3;
@@ -101,3 +142,37 @@ tr:last-child td.last {
 }
 
 </style>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+        <body>
+            <form action="/search/" method="post">
+                <input type="text" id="fieldsearch"size="30">
+                {% csrf_token %}
+                <button id="search" >Поиск</button>
+            </form>
+            <form action="/" method="post">
+                {% csrf_token %}
+                <button id="refreshtable">Обновить таблицу</button>
+            </form>
+            <table>
+                <tr>
+                    <th>id</th>
+                    <th>text</th>
+                    <th>hashtags</th>
+                    <th>created at</th>
+                </tr>
+                {% for item in latest_question_list %}
+                <tr> 
+                    <td>{{ item.tweet_id}}</td>
+                    <td>{{ item.tweet_text}}</td>
+                    <td>{{ item.hashtags}}</td>
+                    <td>{{ item.created_at}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </body>
+
