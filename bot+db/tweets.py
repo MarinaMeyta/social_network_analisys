@@ -12,7 +12,7 @@ access_token_secret = 'WFoJ8UirQpk0UWxlSzjUwWKHSBJcs1KFuaX2e1W25frxS'
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth)
-results = api.search(q = "#Путин", count = 100)
+results = api.search(q = "#ведьмак", count = 100)
 con = sqlite3.connect('test.db')
 cur = con.cursor()
 
