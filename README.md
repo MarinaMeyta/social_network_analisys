@@ -5,36 +5,36 @@ This project will allow to carry out an analysis of people mood based on their s
 
 1. Cloning Git-repository:
 
-$ sudo apt-get install git
+  $ sudo apt-get install git
 
-$ mkdir dir_name
+  $ mkdir dir_name
 
-$ cd dir_name
+  $ cd dir_name
 
-$ git init
+  $ git init
 
-$ git clone https://github.com/MarinaMeyta/social_network_analisys.git
+  $ git clone https://github.com/MarinaMeyta/social_network_analisys.git
 
-$ cd social_network_analisys/
+  $ cd social_network_analisys/
 
 2. Activating virtual environment:
 
-$ source djenv/bin/activate
+  $ source djenv/bin/activate
 
-To deactivate venv, just type:
+  To deactivate venv, just type:
 
-$ deactivate
+  $ deactivate
 
 3. Installing [Django](https://www.djangoproject.com/):
 
-$ sudo apt-get install python-pip
+  $ sudo apt-get install python-pip
 
-$ pip install django==1.8
+  $ pip install django==1.8
 
 4. Installing [tweepy](https://github.com/tweepy/tweepy):
 
-$ pip install tweepy
+  $ pip install tweepy
 
 5. Running local server
 
-$ python manage.py runserver
+  $ python manage.py runserver
