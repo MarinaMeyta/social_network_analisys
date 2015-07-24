@@ -11,7 +11,7 @@ import sqlite3
 
 def home(request):
 	latest_question_list = Tweets.objects.all()
-	template = loader.get_template('web_app/index.html')
+	template = loader.get_template('index.html')
 	context = RequestContext(request, {'latest_question_list': latest_question_list,})
 	return HttpResponse(template.render(context))
 

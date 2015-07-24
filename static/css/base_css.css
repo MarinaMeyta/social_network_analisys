@@ -1,6 +1,3 @@
-
-<style type="text/css">
-
 #search {
   width: 250px;
   height: 22px;
@@ -140,39 +137,3 @@ tr:last-child td.last {
     -moz-border-radius-bottomright:5px;
     -webkit-border-bottom-right-radius:5px; /* Saf3-4 */
 }
-
-</style>
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-    </head>
-        <body>
-            <form action="/search/" method="post">
-                <input type="text" id="fieldsearch"size="30">
-                {% csrf_token %}
-                <button id="search" >Поиск</button>
-            </form>
-            <form action="/" method="post">
-                {% csrf_token %}
-                <button id="refreshtable">Обновить таблицу</button>
-            </form>
-            <table>
-                <tr>
-                    <th>id</th>
-                    <th>text</th>
-                    <th>hashtags</th>
-                    <th>created at</th>
-                </tr>
-                {% for item in latest_question_list %}
-                <tr> 
-                    <td>{{ item.tweet_id}}</td>
-                    <td>{{ item.tweet_text}}</td>
-                    <td>{{ item.hashtags}}</td>
-                    <td>{{ item.created_at}}</td>
-                </tr>
-                {% endfor %}
-            </table>
-        </body>
-
