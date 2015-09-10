@@ -7,9 +7,20 @@
         <link rel="stylesheet" href="{% static "css/base_css.css" %}">
     </head>
         <body>
+
+
+            {% if form.subject.errors %}
+                <ol>
+                    {% for error in form.subject.errors %}
+                        <li><strong>{{ error|escape }}</strong></li>
+                    {% endfor %}
+                </ol>
+            {% endif %}
+
             <form action="/search/" method="post">
-                <input type="text" id="fieldsearch"size="30">
                 {% csrf_token %}
+                {{form}}
+                <input type="text"name="tag" maxlength="10" value="{{form.tag}}">
                 <button id="search" >Поиск</button>
             </form>
             <form action="/" method="post">
@@ -22,6 +33,8 @@
                     <th>text</th>
                     <th>hashtags</th>
                     <th>created at</th>
+                    <th>username</th>
+                    <th>location</th>
                 </tr>
                 {% for item in latest_question_list %}
                 <tr> 
@@ -29,6 +42,10 @@
                     <td>{{ item.tweet_text}}</td>
                     <td>{{ item.hashtags}}</td>
                     <td>{{ item.created_at}}</td>
+                    <td>{{ item.user_name}}</td>
+                    <td>{{ item.location}}</td>
+
+
                 </tr>
                 {% endfor %}
             </table>
